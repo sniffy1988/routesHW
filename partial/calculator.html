@@ -1,0 +1,58 @@
+<div id="myCalculator">
+    <main>
+        <section class="inc">
+            <div>
+                <h4>Incandescent</h4>
+                <p>{{calc.powerCalc('inc')}}</p>
+                <p>{{calc.yearCost('inc')}}</p>
+            </div>
+        </section>
+        <section class="hal">
+            <div>
+                <h4>Halogen</h4>
+                <p>{{calc.powerCalc('hal')}}</p>
+                <p>{{calc.yearCost('hal')}}</p>
+            </div>
+        </section>
+        <section class="cfl">
+            <div>
+                <h4>CFL</h4>
+                <p>{{calc.powerCalc('cfl')}}</p>
+                <p>{{calc.yearCost('cfl')}}</p>
+            </div>
+        </section>
+        <section class="led">
+            <div>
+                <h4>LED</h4>
+                <p>{{calc.powerCalc('led')}}</p>
+                <p>{{calc.yearCost('led')}}</p>
+            </div>
+        </section>
+    </main>
+    <form>
+        <div>
+            <h4>Lumens</h4>
+            <p>Brighttness
+                <br> of bulb</p>
+            <select ng-model="calc.lumens">
+                <option label="375" value="375">375</option>
+                <option label="600" value="600" selected="selected">600</option>
+                <option label="900" value="900">900</option>
+                <option label="1125" value="1125">1125</option>
+                <option label="1600" value="1600">1600</option>
+            </select>
+        </div>
+        <div>
+            <h4>kWh</h4>
+            <p>Kilowatt-
+                <br>hour cost</p>
+            <input type="number" ng-model="calc.cost"> cents
+        </div>
+        <div>
+            <h4>Hours</h4>
+            <p>Usage
+                <br>per day</p>
+            <input type="number" ng-model="calc.usage">
+        </div>
+    </form>
+</div>
