@@ -1,9 +1,9 @@
 <div class="edit note my-repeat-animation">
     <div class="caption">
-        <button type="button" class="top-right-corner">
+        <button type="button" class="top-right-corner" ng-click="noteCtrl.remove($index)">
             <span class="glyphicon glyphicon-remove"></span>
         </button>
-        <div><input type="text" class="medium" placeholder="Note Title"></div>
-        <div><textarea autosize placeholder="Note content"></textarea></div>
+        <div><input type="text" class="medium" placeholder="Note Title" ng-model="note.title"></div>
+        <div><textarea autosize placeholder="Note content" ng-model="note.description"></textarea></div>
     </div>
 </div>

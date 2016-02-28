@@ -1,7 +1,7 @@
 (function () {
     function BoardsCtrl(BordsService) {
         var bc = this;
-
+        this.boardsTitles = [];
         function _getLastID() {
             var maxID = 0;
             var obj = bc.boards;
@@ -13,12 +13,16 @@
             return maxID;
         }
 
+        this.getTitle = function (index) {
+            return this.boardsTitles[index];
+        }
 
         function _updateJson() {
             var getJson = BordsService.getBoards();
             getJson
                 .then(function (result) {
                     bc.boards = result.data;
+                    bc.boardsTitles = Object.keys(bc.boards);
                 })
                 .catch(function (error) {
                     console.log(error);
@@ -43,7 +47,7 @@
             title: "",
             description: "",
             isPublic: "",
-            notes: {}
+            "notes": {}
         }
         this.validateBoard = function () {
             if (this.newTitle === '') {
@@ -59,7 +63,7 @@
                 title: "",
                 description: "",
                 isPublic: false,
-                notes: {}
+                "notes": {}
             }
         }
         bc.initFields = function () {

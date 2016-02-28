@@ -1,10 +1,12 @@
-<note ng-repeat="note in BoardsCtrl.board.notes"></note>
+<note ng-repeat="note in noteCtrl.notes"></note>
 <div class="create note">
     <div class="caption">
-        <form>
+        <form ng-submit="noteCtrl.addNote()">
             <fieldset>
-                <div><input type="text" class="medium" placeholder="Note Title"/></div>
-                <div><textarea autosize placeholder="Note content"></textarea></div>
+                <div><input type="text" class="medium" placeholder="Note Title" ng-model="noteCtrl.tempNote.title"/>
+                </div>
+                <div><textarea autosize placeholder="Note content" ng-model="noteCtrl.tempNote.description"></textarea>
+                </div>
                 <button type="submit" class="bottom-right-corner"><span class="glyphicon glyphicon-plus"></span>
                 </button>
             </fieldset>

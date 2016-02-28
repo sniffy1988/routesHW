@@ -7,7 +7,7 @@
             })
             .when('/board/:boardId', {
                 templateUrl: 'assets/modules/boards/html/board.html',
-                controller: 'NotesCtrl'
+                controller: 'NotesCtrl as noteCtrl',
             })
             .when('/calculator', {
                 templateUrl: 'assets/modules/calculator/html/calculator.html',
