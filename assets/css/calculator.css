@@ -39,22 +39,22 @@ select {
 
 #myCalculator main section.inc {
     background-color: #ba2d2d;
-    background-image: url(images/bulb_inc.svg);
+    background-image: url(../images/bulb_inc.svg);
 }
 
 #myCalculator main section.hal {
     background-color: #de6615;
-    background-image: url(images/bulb_hal.svg);
+    background-image: url(../images/bulb_hal.svg);
 }
 
 #myCalculator main section.cfl {
     background-color: #efc20f;
-    background-image: url(images/bulb_cfl.svg);
+    background-image: url(../images/bulb_cfl.svg);
 }
 
 #myCalculator main section.led {
     background-color: #36b23c;
-    background-image: url(images/bulb_led.svg);
+    background-image: url(../images/bulb_led.svg);
 }
 
 #myCalculator main section > div {
@@ -149,7 +149,7 @@ select {
     -o-appearence: none;
     -ms-appearence: none;
     appearence: none;
-    background: #fff url(images/icons_arrows.svg) no-repeat right 6px;
+    background: #fff url(../images/icons_arrows.svg) no-repeat right 6px;
     background-size: 30px 20px;
     padding: 3px 30px 3px 5px;
 }
