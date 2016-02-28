@@ -1,65 +1,53 @@
 (function () {
-    function BordsService() {
-        var boards = {
-            '0': {
-                title: 'Title 1',
-                description: 'Nice board',
-                isPublic: false,
-                notes: [],
-                id: 0
-            },
-            '1': {
-                title: 'Title 2',
-                description: 'Not so nice board',
-                isPublic: false,
-                notes: [],
-                id: 1
-            }
-        };
+    function BordsService($http, $q) {
+        var baseUrl = "https://crackling-torch-3644.firebaseio.com/";
 
         function _getBoards() {
-            return boards;
+            var defered = $q.defer(),
+                url = baseUrl + 'boards.json';
+            var getJson = $http.get(url);
+            getJson
+                .then(defered.resolve)
+                .catch(defered.reject);
+            return defered.promise;
         }
 
-        function _remove(index) {
-            delete boards[index];
-        }
-
-        function _getlastID() {
-            var id = 0;
-            for (var key in boards) {
-                var tempID = boards[key].id;
-                if (id < tempID) {
-                    id = tempID;
+        function _remove(index, obj) {
+            var i = 0;
+            var title = ''
+            for (var key in obj) {
+                if (i === index) {
+                    title = key;
                 }
+                i++;
             }
-            return id;
+            //delete obj[index];
+            var defer = $q.defer();
+            var name = '"' + obj["id"] + '"';
+            var finalObj = {
+                name: obj
+            }
+            var url = baseUrl + 'boards/' + title + '.json';
+            var putJson = $http.delete(url, obj).then(defer.resolve).catch(defer.reject);
+            return defer.promise;
         }
 
         function addBoard(obj) {
-            var needID = _getlastID() + 1;
-            obj.id = needID;
-            obj.notes = [];
-            boards[needID] = obj;
-            return boards;
+            var defer = $q.defer();
+            var name = '"' + obj["id"] + '"';
+            var finalObj = {
+                name: obj
+            }
+            var url = baseUrl + 'boards.json';
+            var putJson = $http.post(url, obj).then(defer.resolve).catch(defer.reject);
+            return defer.promise;
         }
 
-        function _isUnique(title) {
-            for (var key in boards) {
-                var boards_title = boards[key].title;
-                if (title === boards_title) {
-                    return false;
-                } else {
-                    return true;
-                }
-            }
-        }
 
         return {
             getBoards: _getBoards,
             remove: _remove,
             addBoard: addBoard,
-            isUnique: _isUnique
         };
     }
 
