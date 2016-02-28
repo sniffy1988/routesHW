@@ -1,36 +1,20 @@
-<div class="edit board my-repeat-animation" ng-repeat="board in boardCtrl.boards">
-    <div class="caption">
-        <button type="button" class="top-right-corner" ng-click="boardCtrl.remove(board.id)">
-            <span class="glyphicon glyphicon-remove"></span>
-        </button>
-        <div>
-
-            <input ng-model="board.title" type="text" class="medium" placeholder="Board Title">
-
-        </div>
-        <div>
-            <input ng-model="board.description" type="text" placeholder="Board description.">
-        </div>
-        <div class="bottom x-small">
-            <input type="checkbox" ng-model="board.isPublic"> Board is Public</div>
-        <a href="#/board/{{ board.id }}" type="button" class="view bottom-right-corner">
-            <span class="glyphicon glyphicon-arrow-right"></span>
-        </a>
-    </div>
-</div>
+<board ng-repeat="board in boardCtrl.boards"></board>
 <div class="create board">
     <div class="caption">
         <form ng-submit="boardCtrl.addNewBoard()">
             <fieldset>
                 <div>
-                    <input type="text" class="medium" placeholder="Board Title" ng-required ng-model="boardCtrl.newTitle">
+                    <input type="text" class="medium" placeholder="Board Title" ng-required
+                           ng-model="boardCtrl.newTitle">
                 </div>
                 <div>
                     <input type="text" placeholder="Board description." ng-required ng-model="boardCtrl.newDesc">
                 </div>
                 <div class="bottom x-small">
-                    <input type="checkbox" ng-model="boardCtrl.newisPublic"> Board is Public</div>
-                <button type="submit" class="bottom-right-corner"><span class="glyphicon glyphicon-plus"></span></button>
+                    <input type="checkbox" ng-model="boardCtrl.newisPublic"> Board is Public
+                </div>
+                <button type="submit" class="bottom-right-corner"><span class="glyphicon glyphicon-plus"></span>
+                </button>
             </fieldset>
         </form>
     </div>

@@ -1,6 +1,7 @@
 (function () {
     function lamp() {
         return {
+            restrict: 'E',
             templateUrl: 'assets/modules/calculator/html/lamp.html'
         }
     }
