@@ -1,33 +1,6 @@
 <div id="myCalculator">
     <main>
-        <section class="inc">
-            <div>
-                <h4>Incandescent</h4>
-                <p>{{calc.powerCalc('inc')}}</p>
-                <p>{{calc.yearCost('inc')}}</p>
-            </div>
-        </section>
-        <section class="hal">
-            <div>
-                <h4>Halogen</h4>
-                <p>{{calc.powerCalc('hal')}}</p>
-                <p>{{calc.yearCost('hal')}}</p>
-            </div>
-        </section>
-        <section class="cfl">
-            <div>
-                <h4>CFL</h4>
-                <p>{{calc.powerCalc('cfl')}}</p>
-                <p>{{calc.yearCost('cfl')}}</p>
-            </div>
-        </section>
-        <section class="led">
-            <div>
-                <h4>LED</h4>
-                <p>{{calc.powerCalc('led')}}</p>
-                <p>{{calc.yearCost('led')}}</p>
-            </div>
-        </section>
+        <lamp ng-repeat="lamp in calc.lampTypes"></lamp>
     </main>
     <form>
         <div>

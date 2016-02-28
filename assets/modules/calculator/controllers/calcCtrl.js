@@ -3,7 +3,7 @@
         this.cost = 12;
         this.lumens = "600";
         this.usage = 1;
-
+        this.lampTypes = ['inc', 'hal', 'cfl', 'led'];
         //CALCULATIONS
         this.powerCalc = function (type) {
             var lum = parseInt(this.lumens);
