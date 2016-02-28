@@ -31,7 +31,10 @@
             if (validateFlag) {
                 var notePromise = BordsService.addNote($routeParams.boardId, this.tempNote);
                 notePromise.then(function () {
-                    this.tempNote = {};
+                    note.tempNote = {
+                        title: '',
+                        description: ''
+                    };
                     _UpdateNotes();
                 });
                 notePromise.catch(function (error) {
