@@ -1,0 +1,22 @@
+{
+  "name": "routes_hw",
+  "version": "1.0.0",
+  "description": "homework angular",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sniffy1988/routesHW.git"
+  },
+  "author": "A.Lobodenko",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sniffy1988/routesHW/issues"
+  },
+  "homepage": "https://github.com/sniffy1988/routesHW#readme",
+  "devDependencies": {
+    "bower": "^1.7.7"
+  }
+}
