@@ -22,7 +22,6 @@
         }
 
         function _addBoard(obj) {
-            console.log(obj);
             var defer = $q.defer();
             getJson.$add(obj)
                 .then(defer.resolve)
