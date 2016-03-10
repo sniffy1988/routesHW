@@ -23,7 +23,6 @@
                 .then(function (result) {
                     bc.boards = result[0];
                     bc.boardsTitles = Object.keys(bc.boards);
-                    console.log(bc.boardsTitles);
                 })
                 .catch(function (error) {
                     console.log(error);

@@ -2,11 +2,15 @@
 
     function NotesCtrl(BordsService, $routeParams) {
         var note = this;
-        this.notes = {};
+        note.notes = {};
+        note.notesId = [];
         function _UpdateNotes() {
             var notesPromise = BordsService.getNote($routeParams.boardId);
             notesPromise.then(function (result) {
                 note.notes = result;
+                for (var i = 0; i < result.length; i++) {
+                    note.notesId.push(result[i].$id);
+                }
             }).catch(function (error) {
                 console.log(error);
             })
@@ -25,8 +29,8 @@
             return true;
         }
 
-        this.tempNote = {};
-        this.addNote = function () {
+        note.tempNote = {};
+        note.addNote = function () {
             var validateFlag = _validate();
             if (validateFlag) {
                 var notePromise = BordsService.addNote($routeParams.boardId, this.tempNote);
@@ -42,8 +46,8 @@
                 });
             }
         }
-        this.remove = function (index) {
-            var removePromice = BordsService.removeNote(index, $routeParams.boardId, this.notes);
+        note.remove = function (index) {
+            var removePromice = BordsService.removeNote(index, $routeParams.boardId);
             removePromice.then(function () {
                 _UpdateNotes();
             }).catch(function (error) {

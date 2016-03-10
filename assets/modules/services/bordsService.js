@@ -43,23 +43,10 @@
             return defer.promise;
         }
 
-        function _removeNote(index, path, obj) {
-            var i = 0;
-            var title = ''
-            for (var key in obj) {
-                if (i === index) {
-                    title = key;
-                }
-                i++;
-            }
-            //delete obj[index];
+        function _removeNote(index, path) {
             var defer = $q.defer();
-            var name = '"' + obj["id"] + '"';
-            var finalObj = {
-                name: obj
-            }
-            var url = baseUrl + 'boards/' + path + '/notes/' + title + '.json';
-            var putJson = $http.delete(url, obj).then(defer.resolve).catch(defer.reject);
+            var noteref = new Firebase("https://crackling-torch-3644.firebaseio.com/boards/boards/" + path + "/notes");
+            var noteJson = $firebaseObject(noteref.child(index)).$remove().then(defer.resolve).catch(defer.reject);
             return defer.promise;
         }
 
