@@ -1,6 +1,6 @@
 <div class="edit board my-repeat-animation">
     <div class="caption">
-        <button type="button" class="top-right-corner" ng-click="boardCtrl.remove(board.id)">
+        <button type="button" class="top-right-corner" ng-click="boardCtrl.remove($index)">
             <span class="glyphicon glyphicon-remove"></span>
         </button>
         <div>
@@ -14,7 +14,7 @@
         <div class="bottom x-small">
             <input type="checkbox" ng-model="board.isPublic"> Board is Public
         </div>
-        <a ng-href="{{'#/board/' + boardCtrl.getTitle($index) }}" type="button" class="view bottom-right-corner">
+        <a ng-href="{{'#/board/' + $index }}" type="button" class="view bottom-right-corner">
             <span class="glyphicon glyphicon-arrow-right"></span>
         </a>
     </div>

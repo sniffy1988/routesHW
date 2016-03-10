@@ -31,7 +31,7 @@
 
         this.boards = {};
         this.remove = function remove(index) {
-            var promise = BordsService.remove(index, this.boards);
+            var promise = BordsService.remove(index);
             promise
                 .then(function () {
                     _updateJson();

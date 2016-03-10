@@ -13,23 +13,11 @@
             return defered.promise;
         }
 
-        function _remove(index, obj) {
-            var i = 0;
-            var title = ''
-            for (var key in obj) {
-                if (i === index) {
-                    title = key;
-                }
-                i++;
-            }
-            //delete obj[index];
+        function _remove(index) {
             var defer = $q.defer();
-            var name = '"' + obj["id"] + '"';
-            var finalObj = {
-                name: obj
-            }
-            var url = baseUrl + 'boards/' + title + '.json';
-            var putJson = $http.delete(url, obj).then(defer.resolve).catch(defer.reject);
+            getJson.$remove(index)
+                .then(defer.resolve)
+                .catch(defer.reject);
             return defer.promise;
         }
 
