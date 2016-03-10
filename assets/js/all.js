@@ -1,3 +1,3 @@
 (function () {
-    angular.module('boardsApp', ['ngRoute']);
+    angular.module('boardsApp', ['ngRoute', 'firebase']);
 })();

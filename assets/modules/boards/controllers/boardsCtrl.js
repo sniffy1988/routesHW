@@ -21,7 +21,7 @@
             var getJson = BordsService.getBoards();
             getJson
                 .then(function (result) {
-                    bc.boards = result.data;
+                    bc.boards = result[0];
                     bc.boardsTitles = Object.keys(bc.boards);
                 })
                 .catch(function (error) {
@@ -75,7 +75,7 @@
             this.tempBoard.title = this.newTitle;
             this.tempBoard.description = this.newDesc;
             this.tempBoard.isPublic = this.newisPublic;
-            this.tempBoard.id = _getLastID() + 1;
+            //this.tempBoard.id = _getLastID() + 1;
             var validateFlag = this.validateBoard();
             if (validateFlag) {
                 var addBoard = BordsService.addBoard(bc.tempBoard);

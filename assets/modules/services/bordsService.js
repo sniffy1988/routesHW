@@ -1,12 +1,13 @@
 (function () {
-    function BordsService($http, $q) {
-        var baseUrl = "https://crackling-torch-3644.firebaseio.com/";
+    function BordsService($http, $q, $firebaseObject, $firebaseArray) {
+        //var baseUrl = "https://crackling-torch-3644.firebaseio.com/";
+        var ref = new Firebase("https://crackling-torch-3644.firebaseio.com/boards");
+        var getJson = $firebaseArray(ref.child('boards'));
 
         function _getBoards() {
-            var defered = $q.defer(),
-                url = baseUrl + 'boards.json';
-            var getJson = $http.get(url);
-            getJson
+            var defered = $q.defer();
+            var getJson = $firebaseArray(ref);
+            getJson.$loaded()
                 .then(defered.resolve)
                 .catch(defered.reject);
             return defered.promise;
@@ -33,13 +34,11 @@
         }
 
         function _addBoard(obj) {
+            console.log(obj);
             var defer = $q.defer();
-            var name = '"' + obj["id"] + '"';
-            var finalObj = {
-                name: obj
-            }
-            var url = baseUrl + 'boards.json';
-            var putJson = $http.post(url, obj).then(defer.resolve).catch(defer.reject);
+            getJson.$add(obj)
+                .then(defer.resolve)
+                .catch(defer.reject);
             return defer.promise;
         }
 
