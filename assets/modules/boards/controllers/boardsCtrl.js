@@ -1,7 +1,7 @@
 (function () {
     function BoardsCtrl(BordsService) {
         var bc = this;
-        this.boardsTitles = [];
+        bc.boardsTitles = [];
         function _getLastID() {
             var maxID = 0;
             var obj = bc.boards;
@@ -23,6 +23,7 @@
                 .then(function (result) {
                     bc.boards = result[0];
                     bc.boardsTitles = Object.keys(bc.boards);
+                    console.log(bc.boardsTitles);
                 })
                 .catch(function (error) {
                     console.log(error);

@@ -31,15 +31,15 @@
 
         function _getNote(title) {
             var defer = $q.defer();
-            var url = baseUrl + 'boards/' + title + '/notes.json';
-            var noteJson = $http.get(url).then(defer.resolve).catch(defer.reject);
+            var noteref = new Firebase("https://crackling-torch-3644.firebaseio.com/boards/boards/" + title + "/notes");
+            var noteJson = $firebaseArray(noteref).$loaded().then(defer.resolve).catch(defer.reject);
             return defer.promise;
         }
 
         function _addNote(title, obj) {
             var defer = $q.defer();
-            var url = baseUrl + 'boards/' + title + '/notes.json';
-            var noteJson = $http.post(url, obj).then(defer.resolve).catch(defer.reject);
+            var noteref = new Firebase("https://crackling-torch-3644.firebaseio.com/boards/boards/" + title + "/notes");
+            var noteJson = $firebaseArray(noteref).$add(obj).then(defer.resolve).catch(defer.reject);
             return defer.promise;
         }
 

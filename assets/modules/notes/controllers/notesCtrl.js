@@ -6,7 +6,7 @@
         function _UpdateNotes() {
             var notesPromise = BordsService.getNote($routeParams.boardId);
             notesPromise.then(function (result) {
-                note.notes = result.data;
+                note.notes = result;
             }).catch(function (error) {
                 console.log(error);
             })

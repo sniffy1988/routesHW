@@ -14,7 +14,7 @@
         <div class="bottom x-small">
             <input type="checkbox" ng-model="board.isPublic"> Board is Public
         </div>
-        <a ng-href="{{'#/board/' + $index }}" type="button" class="view bottom-right-corner">
+        <a ng-href="{{'#/board/' + boardCtrl.boardsTitles[$index] }}" type="button" class="view bottom-right-corner">
             <span class="glyphicon glyphicon-arrow-right"></span>
         </a>
     </div>
