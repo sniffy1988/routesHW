@@ -1,0 +1,8 @@
+<div>
+    <input type="text" placeholder="Enter your name" ng-model="login.credentials.name">
+    <input type="password" placeholder="Enter your password" ng-model="login.credentials.password">
+    <label><input type="checkbox" ng-model="login.credentials.isNewUser"> New User</label>
+    <button class="btn btn-primary" ng-click="login.login()">{{login.credentials.isNewUser ? 'Register' : 'Login'}}
+    </button>
+    <div>{{login.status}}</div>
+</div>

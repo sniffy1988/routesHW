@@ -13,6 +13,10 @@
                 templateUrl: 'assets/modules/calculator/html/calculator.html',
                 controller: 'CalcCtrl as calc'
             })
+            .when('/login', {
+                templateUrl: 'assets/modules/login/loginform.html',
+                controller: 'LoginCtrl as login'
+            })
             .otherwise({
                 redirectTo: '/'
             });
